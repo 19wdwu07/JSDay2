@@ -65,17 +65,63 @@ document.getElementById('result').innerHTML = "The total cost is $" + muffinCost
 var steakQuantity = parseInt(prompt("how many steaks?"));
 var sauceQuantity=0;
 
-if (steakQuantity >= 2) {
-  document.getElementById('result').innerHTML = "You will get a free steak";
-  var sauce  = prompt("do you want sauce?");
+if (steakQuantity >= 10) {
+
+  document.getElementById('result').innerHTML = "You will get 5 free steaks";
+} else if (steakQuantity >= 8) {
+  document.getElementById('result').innerHTML = "You will get 4 free steaks";
+} else if (steakQuantity >= 6) {
+  document.getElementById('result').innerHTML = "You will get 3 free steaks";
+} else if (steakQuantity >= 4) {
+  document.getElementById('result').innerHTML = "You will get 2 free steaks";
+} else if (steakQuantity >= 2) {
+  document.getElementById('result').innerHTML = "You will get 1 free steak";
+}
+
+//switch
+
+switch(steakQuantity) {
+  case 10:
+    console.log(5, "free steaks");
+    break;
+  case 9:
+    console.log(4, "free steaks");
+    break;
+     case 8:
+    console.log(4, "free steaks");
+    break;
+     case 7:
+    console.log(3, "free steaks");
+    break;
+     case 6:
+    console.log(3, "free steaks");
+    break;
+     case 5:
+    console.log(2, "free steaks");
+    break;
+     case 4:
+    console.log(2, "free steaks");
+    break;
+     case 3:
+    console.log(1, "free steaks");
+    break;
+     case 2:
+    console.log(1, "free steaks");
+    break;
+    default:
+    console.log("Sorry no free steak");
+}
+
+
+  var sauce  = prompt("do you want sauce?Please enter Yes or No.").toLowerCase();
   // ==  to check for equivalence or === to check for equivalence and type
   if (sauce === "yes") {
    sauceQuantity = parseInt(prompt("how many sauce?"));
     //convert a string input into integer.
   }
 
-}
+
 console.log(steakQuantity,sauceQuantity);
 var steakCost = steakQuantity * 25.60 + sauceQuantity * 2;
 console.log(steakCost);
-document.getElementById('result').innerHTML += "<br> steakCost= " + steakCost;
+document.getElementById('result').innerHTML += "<br> steakCost= $" + steakCost.toFixed(2);
